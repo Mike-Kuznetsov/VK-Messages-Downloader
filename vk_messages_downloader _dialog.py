@@ -23,7 +23,7 @@ lastMessage = session_api.messages.getHistory(count=1, peer_id=user_id);
 pages=int(lastMessage['items'][0]['id']/200+1);
 print("Pages (page - 200 messages): " + str(pages));
 
-for i in range(1, pages):
+for i in range(1, pages+1):
     history = session_api.messages.getHistory(count=200, peer_id=user_id, start_message_id=200*i);
     history = history['items'];
     for j in reversed(history):
