@@ -6,11 +6,11 @@
 
 import vk_api
 from vk_api.longpoll import VkLongPoll, VkEventType
-session_api = vk_session.get_api();
 
 # Get your VK token from here https://vkhost.github.io/ and put it below:
 # Получите ВК токен здесь https://vkhost.github.io/ и вставьте его ниже (Берете из адресной строки):
 vk_session = vk_api.VkApi(token="PASTE-YOUR-TOKEN-HERE");
+session_api = vk_session.get_api();
 # Enter chat ID here:
 # Вставьте ID беседы (Берете из адресной строки):
 chat_id=42;
