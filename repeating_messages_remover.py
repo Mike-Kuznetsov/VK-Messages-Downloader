@@ -1,4 +1,5 @@
 #This code filters vk_messages.txt and skips repeating messages
+#Этот код фильтрует файл со скачанными сообщениями vk_messages.txt, пропуская повторяющиеся сообщения
 
 import ast
 #You need to set name of the file that you created
