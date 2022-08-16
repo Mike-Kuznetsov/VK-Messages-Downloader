@@ -18,17 +18,20 @@ user_id=171414378;
 #Вы можете поменять название файла, по умолчанию сообщения сохранятся в vk_messages.txt. Если файл уже существует, то вы можете удалить его, сменить название или поменять "x" на "w"
 f = open('vk_messages.txt', 'x', encoding="utf-8");
 
-
+#Let's get ID of the last message and count requests count, because we can ask only for 200 messages per request:
+#Получаем ID последнего сообщения и считаем количество запросов т.к. мы можем получить только 200 сообщений за запрос
 lastMessage = session_api.messages.getHistory(count=1, peer_id=user_id);
-pages=int(lastMessage['items'][0]['id']/200+1);
-print("Pages (page - 200 messages): " + str(pages));
+requestCount=int(lastMessage['items'][0]['id']/200+1);
+print("RequestCount (request - 200 messages): " + str(requestCount));
 
-for i in range(1, pages+1):
+#And getting messages, 200 per request
+#И получаем сообщения по 200 штук за раз
+for i in range(1, requestCount+1):
     history = session_api.messages.getHistory(count=200, peer_id=user_id, start_message_id=200*i);
     history = history['items'];
     for j in reversed(history):
         f.write(str(j)+"\n");
-    print(str(i)+" out of "+str(pages));    
+    print(str(i)+" out of "+str(requestCount));    
     
 f.close();
 print("done");
