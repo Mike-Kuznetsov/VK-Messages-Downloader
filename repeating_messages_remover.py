@@ -1,3 +1,5 @@
+#This code filters vk_messages.txt and skips repeating messages
+
 import ast
 #You need to set name of the file that you created
 inputFile = open('vk_messages.txt','r', encoding="utf-8");
