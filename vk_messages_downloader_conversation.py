@@ -21,7 +21,7 @@ user_id=171414378;
 #Вы можете поменять название файла, по умолчанию сообщения сохранятся в vk_messages.txt. Если файл уже существует, то вы можете удалить его, сменить название или поменять "x" на "w"
 f = open('new_vk_messages2.txt', 'x', encoding="utf-8");
 
-#Let's get ID of the last message and count requests count, because we can ask only for 200 messages per request:
+#Let's get ID of the last message and count requests, because we can ask only for 200 messages per request:
 #Получаем ID последнего сообщения и считаем количество запросов т.к. мы можем получить только 200 сообщений за запрос
 lastMessage = session_api.messages.getHistory(count=1, peer_id=2000000000+chat_id, user_id=user_id);
 pages=int(lastMessage['items'][0]['id']/200+1);
